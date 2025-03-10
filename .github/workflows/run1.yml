@@ -7,7 +7,7 @@ on:
     types: started
   workflow_dispatch:
   schedule:
-    - cron: 20 11 * * *
+    - cron: 20 08 * * *
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -31,8 +31,8 @@ jobs:
         id: run
         uses: nick-fields/retry@master
         with:
-          timeout_minutes: 10
-          max_attempts: 3
+          timeout_minutes: 15
+          max_attempts: 10
           command: npm start
       - name: Keep Running
         run: |
